@@ -6,5 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-
-cl
+Project.destroy_all
+proj1 = Project.create(name: "Tourontour", url: "null", description: "agme to to hfdfhdjdhgjdh jjd", language: "Ruby")
+proj2 = Project.create(name: "farforfar", url: "null", description: "agme to to go far from fars ", language: "Javascript")
+proj3 = Project.create(name: "DesertExplorer", url: "null", description: "a story about fdfhdjfhdsjf ", language: "Javascript")
