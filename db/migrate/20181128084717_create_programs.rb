@@ -4,7 +4,7 @@ class CreatePrograms < ActiveRecord::Migration[5.2]
       t.string :name
       t.string :img
       t.string :short_description
-      t.string :long_description
+      t.text :long_description
       
 
       t.timestamps

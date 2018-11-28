@@ -1,12 +1,19 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+##Program
+Program.destroy_all
+ga = Program.create(name: "General Assembly", img: "https://misk.org.sa/miskacademy/wp-content/uploads/sites/5/2018/03/generalassembly-open-graph-w.png", short_description: "Misk Academy, General Assembly, Winter 2019", long_description: "Misk Academy (part of the Misk Foundation) in partnership with General Assembly is launching a bold initiative to build Saudi Arabia’s workforce of the future through robust training in coding, data, design, digital marketing and product management.")
+udacity = Program.create(name: "Udacity", img: "https://misk.org.sa/miskacademy/wp-content/uploads/sites/5/2018/08/udacity-w.png", short_description: "Misk Academy, Udacity", long_description: "The initiative aims to build the knowledge and skills needed for a work in the digital age. Udacity offers top of the line learning in technology that is aimed to help learners gain practical learning. Our goal is to have the biggest impact on our youth and the country’s advancement.")
+siemens = Program.create(name: "Siemens", img: "https://misk.org.sa/fellowship/wp-content/uploads/sites/7/2018/02/siemens-logo-w.png", short_description: "Misk and Siemens internship", long_description: "The Prince Mohammed Bin Salman Bin Abdulaziz Foundation “MiSK” offers sponsored training opportunities for academically excellent university students in the Kingdom in the fields of engineering, management, and information technology in partnership with many global companies pioneering in those fields")
+# ga = Program.create(name: "GA",img: null,short_description: "short desc",long_description: "long desc");
+# udaCity = Program.create(name: "UdaCity",img: null,short_description: "short desc",long_description: "long desc");
 
+##Courses
 Course.destroy_all
 wdi = Course.create(name: "Web Development Immersive", img: "https://misk.org.sa/miskacademy/wp-content/uploads/sites/5/2018/09/p-6.png", short_description: "Full-time course for career changers", long_description: "In this 12-week course, students become junior-level web developers by building rails applications, developing their own ideas into functional web applications, creating a portfolio of their work, and embarking on the career path of a web developer. This course will give aspiring Ruby on Rails developers the confidence to build projects from start to finish at a professional level. The focus of this course is learning to program in Ruby and creating Rails web applications. However, WDI as a whole focuses on teaching students how to be professional full-stack web developers capable of building a scalable product with a team of developers. Therefore, in addition to teaching Rails, this course also includes lessons on computer science, JavaScript, command line basics, Git, GitHub, and database schemas.", duration: "12 Weeks", program_id: "??")
 ds = Course.create(name: "Data Science Immersive", img: "https://misk.org.sa/miskacademy/wp-content/uploads/sites/5/2018/05/p-2.png", short_description: "Full-time course for career changers", long_description: "In this 12-week, full-time course students analyze massive data sets, and predict what happens next through predictive modeling and pattern recognition. Students create a polished portfolio of work that showcases their ability to create machine-learned insights in a way that is impactful to key stakeholders.", duration: "12 Weeks", program_id: "??")
 ux = Course.create(name: "User Experience Design Immersive", img: "https://misk.org.sa/miskacademy/wp-content/uploads/sites/5/2018/05/p-2.png", short_description: "Full-time course for career changers", long_description: "A User Experience Designer is able to think outside the realm of what’s “possible” in order to create experiences that address the needs of customers in a way that brings them joy and delight. This requires a great deal of empathy, imagination, and skill", duration: "10 Weeks", program_id: "??")
+
+##Project
+Project.destroy_all
+proj1 = Project.create(name: "Tourontour", url: "null", description: "agme to to hfdfhdjdhgjdh jjd", language: "Ruby")
+proj2 = Project.create(name: "farforfar", url: "null", description: "agme to to go far from fars ", language: "Javascript")
+proj3 = Project.create(name: "DesertExplorer", url: "null", description: "a story about fdfhdjfhdsjf ", language: "Javascript")
