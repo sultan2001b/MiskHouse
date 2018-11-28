@@ -11,7 +11,7 @@ ga = Program.create(name: "GA",img: null,short_description: "short desc",long_de
 udaCity = Program.create(name: "UdaCity",img: null,short_description: "short desc",long_description: "long desc");
 
 Courses.destroy_all
-ga.Courses.
+ga.courses.create(name:"web development immressive",img: "",short_description: "short",long_description: "long desc",duration: "12 week" )
 Projects.destroy_all
 Students.destroy_all
 Tags.destroy_all
