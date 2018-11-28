@@ -6,13 +6,11 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Program.destroy_all
-ga = Program.create(name: "GA",img: null,short_description: "short desc",long_description: "long desc");
-udaCity = Program.create(name: "UdaCity",img: null,short_description: "short desc",long_description: "long desc");
+# Program.destroy_all
+# ga = Program.create(name: "GA",img: null,short_description: "short desc",long_description: "long desc");
+# udaCity = Program.create(name: "UdaCity",img: null,short_description: "short desc",long_description: "long desc");
 
-Courses.destroy_all
-ga.Courses.
-Projects.destroy_all
-Students.destroy_all
-Tags.destroy_all
-
+Project.destroy_all
+proj1 = Project.create(name: "Tourontour", url: "null", description: "agme to to hfdfhdjdhgjdh jjd", language: "Ruby")
+proj2 = Project.create(name: "farforfar", url: "null", description: "agme to to go far from fars ", language: "Javascript")
+proj3 = Project.create(name: "DesertExplorer", url: "null", description: "a story about fdfhdjfhdsjf ", language: "Javascript")
