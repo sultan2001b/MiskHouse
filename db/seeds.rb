@@ -6,5 +6,13 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+Program.destroy_all
+ga = Program.create(name: "GA",img: null,short_description: "short desc",long_description: "long desc");
+udaCity = Program.create(name: "UdaCity",img: null,short_description: "short desc",long_description: "long desc");
 
-cl
+Courses.destroy_all
+ga.Courses.
+Projects.destroy_all
+Students.destroy_all
+Tags.destroy_all
+
