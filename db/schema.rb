@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 2018_11_28_122917) do
     t.string "name"
     t.string "img"
     t.string "short_description"
-    t.string "long_description"
+    t.text "long_description"
     t.string "duration"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 2018_11_28_122917) do
     t.string "name"
     t.string "img"
     t.string "short_description"
-    t.string "long_description"
+    t.text "long_description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(version: 2018_11_28_122917) do
   create_table "projects", force: :cascade do |t|
     t.string "name"
     t.string "url"
-    t.string "description"
+    t.text "description"
     t.string "language"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
