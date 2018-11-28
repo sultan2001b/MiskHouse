@@ -1,0 +1,10 @@
+<h3>Project: <%=@project.name%></h3>
+<p>Project URL: <%=@project.url%></p>
+<p>Description: <%=@project.description%></p>
+<p>Project was developed by: <%=@project.language%></p>
+<%= link_to 'Edit this Project', edit_project_path %>
+<%= link_to "Delete this Project", project_path(@project), method: :delete %>
+
+<h4>List of contributors here and link them to there show pages</h4> 
+
+
