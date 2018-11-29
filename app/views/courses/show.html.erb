@@ -1,0 +1,17 @@
+<h3>Course: <%=@course.name%></h3>
+<%= image_tag @course.img %>
+
+<p>Brief Description: <%=@course.short_description%></p>
+<p>Full Description: <%=@course.long_description%></p>
+<p>Duration: <%=@course.duration%></p>
+<%= link_to 'Edit this Course', edit_course_path %>
+<%= link_to "Delete this Course", course_path(@course), method: :delete %>
+
+<h4>List of students who take this course </h4>
+<% @course.students.each do |s|%>
+<div>
+<p><%=s.f_name+ " " +s.l_name%></p>
+<%#= link_to(s.name, student_path(s))%>
+</div>
+<%end%>
+<%#= link_to 'Add New student', new_student_path %>

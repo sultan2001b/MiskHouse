@@ -1,0 +1,16 @@
+<h1>Program Show</h1>
+<label>Name:</label>
+<%= @program.name %>
+<br/>
+<label>Image: </label>
+<img src="<%= @program.img %>">
+
+<br/>
+<label>Short Description:</label>
+<%= @program.short_description %>
+<br/>
+<label>Long Description: </label>
+<%= @program.long_description %>
+<br/><br/>
+<%= link_to 'Edit', edit_program_path %>
+<%= link_to 'Delete', program_path , method: :delete %>
