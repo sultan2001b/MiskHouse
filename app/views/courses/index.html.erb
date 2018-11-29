@@ -1,0 +1,7 @@
+<h1>All Courses</h1>
+<% @courses.each do |c|%>
+<div>
+<%= link_to(c.name, course_path(c))%>
+</div>
+<%end%>
+<%#= link_to 'Add New Course', new_course_path %>
