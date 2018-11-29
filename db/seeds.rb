@@ -24,7 +24,7 @@ industrialengineering = siemens.courses.create(name: "Industrial Engineering", i
 Student.destroy_all
 imgage_path = "https://www.apicius.es/wp-content/uploads/2012/07/IMG-20120714-009211.jpg"
 sami = fullstackdeveloper.students.create(f_name: "sami", l_name: "aldahlawi", gender: "male", email: "email@email.com", mobile: "0501231234", img: imgage_path, bio: "bio !!")
-mansour = becomeiosdeveloper.students.create(f_name: "masour", l_name: "theDeveloper", gender: "male", email: "email@email.com", mobile: "0501231234", img: imgage_path, bio: "bio !!")
+mansour = becomeiosdeveloper.students.create(f_name: "masour", l_name: "alsqian", gender: "male", email: "email@email.com", mobile: "0501231234", img: imgage_path, bio: "bio !!")
 sultan = becomeblockchaindeveloper.students.create(f_name: "sultan", l_name: "alsamaani", gender: "male", email: "email@email.com", mobile: "0501231234", img: imgage_path, bio: "bio !!")
 
 ##Project
