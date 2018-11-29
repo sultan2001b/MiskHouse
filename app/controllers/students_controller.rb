@@ -4,10 +4,11 @@ class StudentsController < ApplicationController
   end
 
   def edit
-    @student = Stude
+    @student = Student.find_by(id: params[:id])
   end
 
   def show
+    @student = Student.find_by(id: params[:id])
   end
 
   def create
@@ -21,15 +22,17 @@ class StudentsController < ApplicationController
   end
 
   def update
+    student = Student.find_by(id: params[:id])
+    student.update(student_params)
   end
 
   def index
+    @students = Student.all
   end
 
   private
+
   def student_params
     params.require(:student).permit(:f_name, :l_name, :gender, :email, :mobile, :linkedin, :github_user, :twitter, :img, :bio)
   end
-
 end
-
