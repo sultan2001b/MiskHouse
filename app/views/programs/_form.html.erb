@@ -1,0 +1,9 @@
+
+<%= form_for @program do |f| %>
+  Name: <%= f.text_field :name %>
+  image: <%= f.text_field :img %>
+  Short description: <%= f.text_field :short_description %>
+  Long description: <%= f.text_field :long_description %>
+
+  <%= f.submit %>
+<% end %>

@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
+  resources :programs
   resources :courses
   resources :projects
+  
   get "students/new"
   get "students/edit"
   get "students/show"
