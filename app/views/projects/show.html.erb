@@ -5,6 +5,12 @@
 <%= link_to 'Edit this Project', edit_project_path %>
 <%= link_to "Delete this Project", project_path(@project), method: :delete %>
 
-<h4>List of contributors here and link them to there show pages</h4> 
-
+<h4>List of contributors here and link them to there show pages</h4>
+<% @project.students.each do |s|%>
+<div>
+<p><%=s.f_name+ " " +s.l_name%></p>
+<%#= link_to(c.name, student_path(s))%>
+</div>
+<%end%>
+<%#= link_to 'Add New Contributer', new_student_path %>
 
