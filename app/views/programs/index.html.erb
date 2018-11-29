@@ -1,0 +1,18 @@
+<h1>All Programs </h1>
+
+<% @programs.each do |program| %>
+<label>Name:</label>
+<%= link_to program.name,  program_path(program)%>
+
+<br/>
+<label>Image: </label>
+<img src="<%= program.img %>">
+
+<br/>
+<label>Short Description:</label>
+<%= program.short_description %>
+<br/>
+<label>Long Description: </label>
+<%= program.long_description %>
+<br/><br/>
+<% end %>
