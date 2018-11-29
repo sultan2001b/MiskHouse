@@ -3,5 +3,4 @@ Rails.application.routes.draw do
   resources :programs
   resources :courses
   resources :projects
- 
 end

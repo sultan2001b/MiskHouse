@@ -4,13 +4,18 @@
 <br/>
 <label>Image: </label>
 <img src="<%= @program.img %>">
-
 <br/>
 <label>Short Description:</label>
 <%= @program.short_description %>
 <br/>
 <label>Long Description: </label>
 <%= @program.long_description %>
-<br/><br/>
+<br/>
+<br/>
 <%= link_to 'Edit', edit_program_path %>
 <%= link_to 'Delete', program_path , method: :delete %>
+<% @program.courses.each do |c| %>
+  <p>
+    <%= link_to c.name, course_path(c) %>
+  </p>
+<% end %>
