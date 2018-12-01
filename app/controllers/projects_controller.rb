@@ -12,8 +12,10 @@ class ProjectsController < ApplicationController
   end
 
   def create
-    project = Project.create(project_params)
-    redirect_to projects_path
+    student_id = session[:program_id]
+    student = Student.find_by(id: student_id)
+    project = student.projects.create(project_params)
+    redirect_to student_path(student)
   end
 
   def edit

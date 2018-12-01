@@ -1,5 +1,7 @@
-<h1>All Programs </h1>
-
+<hr>
+<%= link_to 'Add Program', new_program_path %>
+<h1 style="text-align:center">All Programs </h1>
+<br>
 <% @programs.each do |program| %>
 <label>Name:</label>
 <%= link_to program.name,  program_path(program)%>

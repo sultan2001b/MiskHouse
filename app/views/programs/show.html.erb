@@ -1,4 +1,4 @@
-<h1>Program Show</h1>
+<h1 style="text-align:center">Program Show</h1>
 <label>Name:</label>
 <%= @program.name %>
 <br/>
@@ -14,8 +14,17 @@
 <br/>
 <%= link_to 'Edit', edit_program_path %>
 <%= link_to 'Delete', program_path , method: :delete %>
+
+
+<hr/>
+<nav>
+<%= link_to 'Add New Course', new_course_path %>
+</nav>
+<h1 style="text-align:center">Courses</h1>
+<ul>
 <% @program.courses.each do |c| %>
-  <p>
+  <li>
     <%= link_to c.name, course_path(c) %>
-  </p>
+  </li>
 <% end %>
+</ul>

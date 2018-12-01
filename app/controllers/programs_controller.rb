@@ -5,7 +5,8 @@ class ProgramsController < ApplicationController
 
   def show
     @program = Program.find_by(id: params[:id])
-    
+    ##Take the id of course from (courses_Controller)  #show
+    session[:program_id] = @program.id
   end
 
   def new

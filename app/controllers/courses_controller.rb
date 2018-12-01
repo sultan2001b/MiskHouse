@@ -1,11 +1,11 @@
 class CoursesController < ApplicationController
   def index
-    program = Program.find_by(id: params[:id])
-    @courses = program.courses.all
+    @courses = Course.all
   end
 
   def show
     @course = Course.find(params[:id])
+    session[:program_id] = @course.id
   end
 
   def edit
@@ -23,8 +23,10 @@ class CoursesController < ApplicationController
   end
 
   def create
-    course = Course.create(course_params)
-    redirect_to courses_path
+    program_id = session[:program_id]
+    program = Program.find_by(id: program_id)
+    course = program.courses.create(course_params)
+    redirect_to program_path(program)
   end
 
   def destroy
