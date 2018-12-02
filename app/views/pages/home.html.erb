@@ -1,4 +1,4 @@
-<main role="main">
+<main role="main" class="bg-light">
       <div id="myCarousel" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
           <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -77,27 +77,33 @@
     <div class="album py-5 bg-light">
     <div class="container">
     <div class="row">
-    <% @programs.each do |program| %>
+      <div class="card-deck">
+
+      <% @programs.each do |program| %>
     <!--<a href="<%= program_path(program) %>" ></a>-->
-    <div class="col-md-4">
+<!--    <div class="col-md-4">-->
     <div class="card mb-4 shadow-sm">
-    <img src="<%= program.img %>">
+    <img src="<%= program.img %>" class="img-fluid " style="height: 200px;">
     <div class="card-body">
     <h4><%= program.name %></h4>
     <p class="card-text"><%= program.short_description %></p>
+    </div>
+<div class="card-footer">
     <div class="d-flex justify-content-between align-items-center">
-    <div class="btn-group">
+    <div class="btn-group ">
     <a href="<%= program_path(program) %>">
     <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
        </a>
     <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
     </div>
     </div>
+</div>
     <!--<small class="text-muted">9 mins</small>-->
     </div>
-    </div>
-    </div>
+<!--    </div>-->
     <% end %>
+      </div>
+
     </div>
     </div>
     </div>
@@ -114,7 +120,7 @@
             <p class="lead">To organize Misk's projects and make them universally accessible and useful.</p>
           </div>
           <div class="col-md-5">
-            <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
+            <img class="featurette-image img-fluid mx-auto" src="https://image.freepik.com/free-vector/workspace-in-cartoon-style_23-2147508020.jpg" alt="Generic placeholder image">
           </div>
         </div>
 
@@ -122,11 +128,11 @@
 
         <div class="row featurette">
           <div class="col-md-7 order-md-2">
-            <h2 class="featurette-heading">Teamwork </h2>
-            <p class="lead">If you want to go fast, go alone. If you want to go far, go together.</p>
+            <h2 class="featurette-heading">Our Vision <span class="text-muted">Misk Academy shall become a high-quality thought leader and platform for Leadership, Media and Tech professional education</span></h2>
+            <p class="lead">We want Misk Academy to become a leading academy, thought leader when it comes to Leadership development in the Middle East and in building the next generation of makers, innovators in Creative Digital Media and in Technology</p>
           </div>
           <div class="col-md-5 order-md-1">
-            <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
+            <img class="featurette-image img-fluid mx-auto" src="https://image.freepik.com/free-vector/education-connection-concept_23-2147508028.jpg" alt="Generic placeholder image">
           </div>
         </div>
 
@@ -134,11 +140,11 @@
 
         <div class="row featurette">
           <div class="col-md-7">
-            <h2 class="featurette-heading">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
-            <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+            <h2 class="featurette-heading">Teamwork <span class="text-muted">proverb</span></h2>
+            <p class="lead">"If you want to go fast, go alone. If you want to go far, go together."</p>
           </div>
           <div class="col-md-5">
-            <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
+            <img class="featurette-image img-fluid mx-auto" src="https://image.freepik.com/free-vector/cyber-technology-concept-design_1017-13729.jpg"alt="Generic placeholder image">
           </div>
         </div>
 
