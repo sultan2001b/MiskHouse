@@ -6,7 +6,6 @@ class CreatePrograms < ActiveRecord::Migration[5.2]
       t.string :icon
       t.string :short_description
       t.text :long_description
-      
 
       t.timestamps
     end
