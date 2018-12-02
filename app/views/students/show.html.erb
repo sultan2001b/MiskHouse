@@ -8,15 +8,22 @@
 <p>twitter: <%= @student.twitter  %></p>
 <p><img src="<%= @student.img  %>" alt=""> </p>
 <p>bio: <%= @student.bio %></p>
-<%= link_to "Edit", edit_student_path(@student)%>
+<% if user_signed_in? %>
+  <% if current_user.id == params[:id] || current_user.admin %>
+    <%= link_to "Edit", edit_student_path(@student)%>
+  <% end %>
+<% else %>
+<% end %>
 <hr>
-<%= link_to "Add New Project", new_project_path %>
+<% if user_signed_in? %>
+  <% if current_user.id == params[:id] || current_user.admin  %>
+    <%= link_to "Add New Project", new_project_path %>
+  <% end %>
+<% else %>
+<% end %>
 <h1 style="text-align:center"> All Projects</h1>
 <ul>
-
-<% @student.projects.each do |project|%>
-<li><%= link_to project.name, project_path(project) %></li>
-    
-<% end%>
+  <% @student.projects.each do |project|%>
+    <li><%= link_to project.name, project_path(project) %></li>
+  <% end%>
 </ul>
-
