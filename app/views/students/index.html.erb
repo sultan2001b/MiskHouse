@@ -3,5 +3,7 @@
 <% @students.each do |student| %>
   <p>
     <%= link_to student.f_name+" "+student.l_name, student_path(student) %>
+     
   </p>
+
 <% end %>

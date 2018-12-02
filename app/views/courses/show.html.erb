@@ -1,35 +1,232 @@
-<h1 class="margin_top" style="text-align:center">Course<h1>
-<h3 >Course: <%=@course.name%></h3>
-<img src="<%= @course.img %>">
+<div class="d-flex align-items-center flex-column "  style="background-image: url('<%= @course.img %>'); background-repeat: no-repeat;background-size: cover; width: 100%;height: 500px;">
+  <section class="text-center">
+    <br>
+    <h1 class="text-white "> <%=@course.name %></h1>
+<!--    <img src="<%# @program.icon %>">-->
+    <p class="lead  text-white"> <%=@course.short_description%> </p>
+      <p class="lead  text-white"> <%=@course.long_description%> </p>
+      <p class="lead  text-white"> <%=@course.duration%> </p>
+    <div class="mt-auto p-2">
+      <div class="row text-white">
+        <div class="col">* Students 220</div>
+        <div class="col">* Projects 500</div>
+        <div class="w-100"></div>
+        <div class="col">* 12 Weeks</div>
+        <div class="col">* 7 Course</div>
+      </div>
+    </div>
 
-<p>Brief Description: <%=@course.short_description%></p>
-<p>Full Description: <%=@course.long_description%></p>
-<p>Duration: <%=@course.duration%></p>
+  </section>
+</div>
+<!--<h1 class="margin_top" style="text-align:center">Course<h1>-->
+<!--<h3 >Course: <%#=@course.name%></h3>-->
+<!--<img src="<%#= @course.img %>">-->
+
+<!--<p>Brief Description: <%#=@course.short_description%></p>-->
+<!--<p>Full Description: <%#=@course.long_description%></p>-->
+<!--<p>Duration: <%#=@course.duration%></p>-->
 <%= link_to 'Edit this Course', edit_course_path %>
 <%= link_to "Delete this Course", course_path(@course), method: :delete %>
 
 <hr/>
-<div style="display:flex">
-<div style="margin:10px 20%">
+<ul class="nav nav-tabs " id="myTab" role="tablist">
+  <li class="nav-item col-6">
+    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Students</a>
+  </li>
+  <li class="nav-item col-6">
+    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Projects</a>
+  </li>
+<!--
+  <li class="nav-item">
+    <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Contact</a>
+  </li>
+-->
+</ul>
+      
+<div class="modal-body row ">
+  
+<div class="tab-content container-full" id="myTabContent">
+  <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+   
+<div class="col-md-12">
+<!-- Your first column here -->
+<!-- START studnets -->
     <%= link_to "Add New student", new_student_path%>
-    <h1 style="text-align:center">Students</h1>
-    <ul>
-    <% @course.students.each do |student|%>
-    <li><%= link_to student.f_name+ " " +student.l_name, student_path(student)%></li>
-    <%end%>
-    </ul>
+<h1>Students</h1>
+    
+<div class="container">
+<div class="row ">
+	<div class="col-lg-12">
+		<div class="main-box clearfix">
+			<div class="table-responsive">
+				<table class="table user-list">
+					<thead>
+						<tr>
+							<th><span>User</span></th>
+							<th><span>Bio</span></th>
+							<th class="text-center"><span>GitHub</span></th>
+							<th><span>Email</span></th>
+                            <th><span>Projects</span></th>
+<!--							<th>&nbsp;</th>-->
+						</tr>
+					</thead>
+					<tbody>
+                        
+
+
+                        <% @course.students.each do |student|%>
+						<tr>
+							<td>
+								<img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="">
+								<a href="<%= student_path(student)%>" class="user-link"><%= student.f_name + " " + student.l_name%></a>
+								<span class="user-subhead">Gender: <%= student.gender%></span>
+							</td>
+							<td class="text-center">
+								<p><%= student.bio%></p>
+							</td>
+							<td class="text-center">
+                                <a href="<%=student.github_user%>"><%=student.github_user%></a>
+							</td>
+							<td>
+								<a href="#"><%= student.email %></a>
+							</td>
+                            
+                            
+                            <td>
+                                <a href="<%= student_path(student)%>">
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                <span class="badge badge-primary badge-pill"><%= student.projects.all.count%></span>
+                                </li>
+                                     </a>
+                            </td>
+                               
+<!--
+							<td style="width: 20%;">
+								<a href="#" class="table-link">
+									<span class="fa-stack">
+										<i class="fa fa-square fa-stack-2x"></i>
+										<i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>
+									</span>
+								</a>
+								<a href="#" class="table-link">
+									<span class="fa-stack">
+										<i class="fa fa-square fa-stack-2x"></i>
+										<i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
+									</span>
+								</a>
+								<a href="#" class="table-link danger">
+									<span class="fa-stack">
+										<i class="fa fa-square fa-stack-2x"></i>
+										<i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
+									</span>
+								</a>
+							</td>
+-->
+						</tr>
+                        <%end%>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+<div>
+
+
+
+
+
+</div>
+<!-- END studnets -->
+</div>
+</div>
+    
+  <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+<!-- Your second column here -->
+<div class="col-md-12">
+<!-- START projects -->
+<div style="width:50%"> 
+<%#= link_to "Add New programs", new_student_path%>
+<h1 style="text-align:center">Projects</h1>
+<ul>
+<% @course.projects.each do |project|%>
+<li><%= link_to project.name, project_path(project)%></li>
+<%end%>
+</ul>
+</div>
+<!-- END projects -->
+</div>
+    </div>
+<!--  <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>-->
+</div>
+     
 </div>
 
-<div style="margin:10px 20%">
-    <%#= link_to "Add New programs", new_student_path%>
-    <h1 style="text-align:center">Programs</h1>
-    <ul>
-    <% @course.projects.each do |project|%>
-    <li><%= link_to project.name, project_path(project)%></li>
-    <%end%>
-    </ul>
-</div>
+     
+    
+    
+    
+    
+<!--
 
-</div>
+        <div class="container">
+<div class="row">
+	<div class="col-lg-12">
+		<div class="main-box clearfix">
+			<div class="table-responsive">
+				<table class="table user-list">
+					<thead>
+						<tr>
+							<th><span>User</span></th>
+							<th><span>Created</span></th>
+							<th class="text-center"><span>Status</span></th>
+							<th><span>Email</span></th>
+							<th>&nbsp;</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>
+								<img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="">
+								<a href="#" class="user-link">Mila Kunis</a>
+								<span class="user-subhead">Admin</span>
+							</td>
+							<td>
+								2013/08/08
+							</td>
+							<td class="text-center">
+								<span class="label label-default">Inactive</span>
+							</td>
+							<td>
+								<a href="#">mila@kunis.com</a>
+							</td>
+							<td style="width: 20%;">
+								<a href="#" class="table-link">
+									<span class="fa-stack">
+										<i class="fa fa-square fa-stack-2x"></i>
+										<i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>
+									</span>
+								</a>
+								<a href="#" class="table-link">
+									<span class="fa-stack">
+										<i class="fa fa-square fa-stack-2x"></i>
+										<i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
+									</span>
+								</a>
+								<a href="#" class="table-link danger">
+									<span class="fa-stack">
+										<i class="fa fa-square fa-stack-2x"></i>
+										<i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
+									</span>
+								</a>
+							</td>
+						</tr>
 
-
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>-->

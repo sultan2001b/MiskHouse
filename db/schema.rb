@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 2018_11_28_122917) do
   create_table "programs", force: :cascade do |t|
     t.string "name"
     t.string "img"
+    t.string "icon"
     t.string "short_description"
     t.text "long_description"
     t.datetime "created_at", null: false
