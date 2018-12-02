@@ -94,7 +94,13 @@
     <a href="<%= program_path(program) %>">
     <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
        </a>
-    <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+      <% if user_signed_in? %>
+       <% if current_user.admin %>
+        <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+    <% end %>
+      <% else %>
+      <% end %>
+
     </div>
     </div>
 </div>

@@ -17,20 +17,30 @@
 
 </section>
 </div>
-<<<<<<< HEAD
-=======
 
->>>>>>> 986afd59993fc66c50f2467c4d92567e52f79adc
+<% if user_signed_in? %>
+ <% if current_user.admin %>
 
+  <%= link_to 'Edit', edit_program_path %>
+  <%= link_to 'Delete', program_path , method: :delete %>
+    <% end %>
+<% else %>
 
-<%= link_to 'Edit', edit_program_path %>
-<%= link_to 'Delete', program_path , method: :delete %>
-
+<% end %>
 
 <hr/>
-<nav>
-<%= link_to 'Add New Course', new_course_path %>
-</nav>
+
+  <% if user_signed_in? %>
+ <% if current_user.admin %>
+  <nav>
+    <%= link_to 'Add New Course', new_course_path %>
+  </nav>
+
+    <% end %>
+  <% else %>
+
+  <% end %>
+
 <h1 style="text-align:center">Courses</h1>
 <ul>
 <% @program.courses.each do |c| %>

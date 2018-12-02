@@ -4,4 +4,6 @@
 <%= link_to(p.name, project_path(p))%>
 </div>
 <%end%>
+<% if current_user.admin %>
 <%= link_to 'Add New Project', new_project_path %>
+    <% end %>

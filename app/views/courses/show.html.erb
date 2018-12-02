@@ -25,8 +25,15 @@
 <!--<p>Brief Description: <%#=@course.short_description%></p>-->
 <!--<p>Full Description: <%#=@course.long_description%></p>-->
 <!--<p>Duration: <%#=@course.duration%></p>-->
-<%= link_to 'Edit this Course', edit_course_path %>
-<%= link_to "Delete this Course", course_path(@course), method: :delete %>
+<% if user_signed_in? %>
+ <% if current_user.admin %>
+  <%= link_to 'Edit this Course', edit_course_path %>
+  <%= link_to "Delete this Course", course_path(@course), method: :delete %>
+    <% end %>
+<% else %>
+
+<% end %>
+
 
 <hr/>
 <ul class="nav nav-tabs " id="myTab" role="tablist">
@@ -51,7 +58,15 @@
 <div class="col-md-12">
 <!-- Your first column here -->
 <!-- START studnets -->
+  <% if user_signed_in? %>
+	 <% if current_user.admin %>
+
     <%= link_to "Add New student", new_student_path%>
+    <% end %>
+  <% else %>
+
+  <% end %>
+
 <h1>Students</h1>
     
 <div class="container">

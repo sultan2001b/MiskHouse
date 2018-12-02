@@ -4,4 +4,7 @@
 <%= link_to(c.name, course_path(c))%>
 </div>
 <%end%>
+ <% if current_user.admin %>
+
 <%= link_to 'Add New Course', new_course_path %>
+    <% end %>
