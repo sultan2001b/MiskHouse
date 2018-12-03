@@ -1,20 +1,49 @@
-<%= form_for @course do |f| %>
+<form class="container">
+  <%= form_for @course do |f| %>
+  <div class="form-group">
+  <label for="exampleFormControlInput1">Name</label>
+  <%= f.text_field :name,class:"form-control", id:"exampleFormControlInput1" ,placeholder:"name" %>
+  </div>
+
+   <div class="form-group">
+    <label for="exampleFormControlInput1">Image</label>
+    <%= f.file_field :name %>
+   </div>
+
+     <div class="form-group">
+    <label for="exampleFormControlTextarea1">Short Description</label>
+    <%= f.text_field :name,class:"form-control", id:"exampleFormControlInput1" ,placeholder:"Short description" %>
+  </div>
+
+    <div class="form-group">
+    <label for="exampleFormControlTextarea1">Long Description</label>
+     <%= f.text_area:name,class:"form-control", id:"exampleFormControlTextarea1" ,placeholder:"Long description" %>
+  </div>
+
+<%= f.submit "Create Course", class:"btn btn-secondary btn-lg"%>
+ <% end %>
+</form>
+
+<!-- 
+<%# <%= form_for @course do |f| %> %>
 <div>
-<%= f.label :name%>
-<%= f.text_field :name%>
+<%# <%= f.label :name%> %>
+<%# <%= f.text_field :name%> %>
 <br/>
-<%= f.label :img%>
-<%= f.file_field  :img%>
+<%# <%= f.label :img%> %>
+<%# <%= f.file_field  :img%> %>
 <br/>
-<%= f.label :short_description %>
-<%= f.text_field :short_description %>
+<%# <%= f.label :short_description %> %>
+<%# <%= f.text_field :short_description %> %>
 <br/>
-<%= f.label :long_description %>
-<%= f.text_field :long_description %>
+<%# <%= f.label :long_description %> %>
+<%# <%= f.text_field :long_description %> %>
 <br/>
-<%= f.label :duration %>
-<%= f.text_field :duration %>
+<%# <%= f.label :duration %> %>
+<%# <%= f.text_field :duration %> %>
 <br/>
-<%= f.submit %>
+<%# <%= f.submit %> %>
 </div>
-<% end %>
+<%# <% end %> %>
+
+-->
