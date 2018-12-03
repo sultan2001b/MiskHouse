@@ -2,6 +2,7 @@ class StudentsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   def new
     @student = Student.new
+    
   end
 
   def edit
