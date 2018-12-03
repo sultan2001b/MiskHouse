@@ -19,12 +19,10 @@
 
 <% if user_signed_in? %>
  <% if current_user.admin %>
-
   <%= link_to 'Edit', edit_program_path %>
   <%= link_to 'Delete', program_path , method: :delete %>
     <% end %>
 <% else %>
-
 <% end %>
 
 <hr/>
@@ -37,10 +35,37 @@
 <% else %>
 <% end %>
 <h1 style="text-align:center">Courses</h1>
-<ul>
-  <% @program.courses.each do |c| %>
-    <li>
-      <%= link_to c.name, course_path(c) %>
-    </li>
+
+
+<div class="album py-5 bg-light">
+<div class="container">
+<div class="row">
+<div class="card-deck">
+  <% @program.courses.each do |course| %>
+    
+      
+<div class="card mb-4 shadow-sm">
+<img src="<%= course.img %>" class="img-fluid " style="height: 200px;">
+<div class="card-body">
+<h4><%= course.name %></h4>
+<p class="card-text"><%= course.short_description %></p>
+</div>
+<div class="card-footer">
+<div class="d-flex justify-content-between align-items-center">
+<div class="btn-group ">
+<a href="<%= course_path(course) %>">
+<button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+</a>
+
+
+</div>
+</div>
+</div>
+<!--<small class="text-muted">9 mins</small>-->
+</div>
+ <!--    </div>-->
   <% end %>
-</ul>
+</div>
+</div>
+</div>
+</div>

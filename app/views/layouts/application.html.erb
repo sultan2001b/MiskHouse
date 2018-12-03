@@ -51,9 +51,10 @@
           </ul>
 
           <% if user_signed_in? %>
-            <p style="color:white">logged in users</p>
+          
+            <p class="alert alert-primary" role="alert">logged in users</p>
           <% else %>
-            <p style="color:white">logged out users</p>
+            <p class="alert alert-primary" role="alert">logged out users</p>
           <% end %>
 
           <form class="form-inline mt-2 mt-md-0">
