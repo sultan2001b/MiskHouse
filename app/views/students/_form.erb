@@ -35,7 +35,7 @@
             </div>
             </div>
     
-            <div class="col-lg-6 col-md-4 mb-3">
+            <div class="col-lg-6 col-md-12 mb-3">
             <label for="validationCustom02">Image</label>
             <div class="input-group">
             <%= f.file_field :img, class:"custom-file-label form-control", id:"validationCustom02" %>
@@ -90,7 +90,7 @@
             </div>
             </div>
     
-            <div class="col-lg-6 col-md-4 mb-3">
+            <div class="col-lg-6 col-md-6 mb-3">
             <label for="validationCustom02">Twitter</label>
             <%= f.text_field :l_name ,class:"form-control", id:"validationCustom02", placeholder:"Twitter" %>
             <!--        <input type="text" class="form-control" id="validationCustom02" placeholder="Last name" value="Otto" required>-->
@@ -99,11 +99,10 @@
             </div>
             </div>
            
-
             
     
     
-            <div class="col-lg-6 col-md-4 mb-3">
+            <div class="col-lg-6 col-md-6 mb-3">
             <label for="validationCustom02">Bio</label>
              <%= f.text_area :bio,class:"form-control", id:"validationCustom02", placeholder:"Bio" %>
             <!--        <input type="text" class="form-control" id="validationCustom02" placeholder="Last name" value="Otto" required>-->
@@ -114,9 +113,9 @@
             
 </div>
     
-  <button class="btn btn-primary" type="submit">Submit form</button>
+<!--  <button class="btn btn-primary" type="submit">Submit form</button>-->
 
-
+<%= f.submit %>
 <% end %>
 </form>
 
