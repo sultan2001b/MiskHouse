@@ -1,54 +1,59 @@
-<h1 class="margin_top"></h1>
-<%= form_for @student do |f| %>
+<<!-- h1 class="margin_top"></h1>
+
+<%# form_for @student do |f| %>
   <p>
-    <%= f.label :f_name ,"first name" %>
-    <%= f.text_field :f_name %>
+    <%# f.label :f_name ,"first name" %>
+    <%# f.text_field :f_name %>
   </p>
   <p>
-    <%= f.label :l_name ,"last name"%>
-    <%= f.text_field :l_name %>
+    <%# f.label :l_name ,"last name"%>
+    <%# f.text_field :l_name %>
   </p>
   <p>
-    <%= f.label :gender %>
-    <%= f.text_field :gender %>
+    <%# f.label :gender %>
+    <%# f.text_field :gender %>
   </p>
   <p>
-    <%= f.label :email %>
-    <%= f.text_field :email %>
+    <%# f.label :email %>
+    <%# f.text_field :email %>
   </p>
   <p>
-    <%= f.label :mobile %>
-    <%= f.text_field :mobile %>
+    <%# f.label :mobile %>
+    <%# f.text_field :mobile %>
   </p>
   <p>
-    <%= f.label :linkedin %>
-    <%= f.text_field :linkedin %>
+    <%# f.label :linkedin %>
+    <%# f.text_field :linkedin %>
   </p>
   <p>
-    <%= f.label :github_user %>
-    <%= f.text_field :github_user %>
+    <%# f.label :github_user %>
+    <%# f.text_field :github_user %>
   </p>
   <p>
-    <%= f.label :twitter %>
-    <%= f.text_field :twitter %>
+    <%# f.label :twitter %>
+    <%# f.text_field :twitter %>
   </p>
   <p>
-    <%= f.label :img %>
-    <%= f.text_field :img %>
+    <%# f.label :img %>
+    <%# f.text_field :img %>
   </p>
   <p>
-    <%= f.label :bio %>
-    <%= f.text_field :bio %>
+    <%# f.label :bio %>
+    <%# f.text_field :bio %>
   </p>
   <p>Courses :</p>
-  <% i=0 %>
-  <% Course.all.each do |c|%>
-    <%= check_box_tag 'courses['+i.to_s+']', c.name %>
-    <% i=i+1%>
-    <%= c.name %>
+  <%# i#0 %>
+  <%# Course.all.each do |c|%>
+    <%# check_box_tag 'courses['+i.to_s+']', c.name %>
+    <%# i#i+1%>
+    <%# c.name %>
     <br>
-  <% end %>
+  <%# end %>
   <br>
   <br>
-  <%= f.submit %>
-<% end %>
+  <%# f.submit %>
+<%# end %>
+-->
+
+
+<%= render partial:"form" %>
