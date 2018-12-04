@@ -23,6 +23,7 @@
 {
     box-sizing: content-box;
 } */
+
 .fill_img {
   width: 100%;
   height: 600px;
@@ -38,4 +39,11 @@
 .opacity {
   opacity: 0.5;
   filter: alpha(opacity=50); /* For IE8 and earlier */
+}
+
+
+
+.text-success
+{
+  color:#676767 !important
 }

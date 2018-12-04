@@ -1,26 +1,74 @@
 <h1 class="margin_top"></h1>
-<h2><%= @student.f_name %>  <%=@student.l_name %></h2>
-<p>gender: <%= @student.gender  %></p>
-<p>email: <%= @student.email  %></p>
-<p>mobile: <%= @student.mobile  %></p>
-<p>linkedin: <%= @student.linkedin  %></p>
-<p>github_user: <%= @student.gender  %></p>
-<p>twitter: <%= @student.twitter  %></p>
-<p><img src="<%= @student.img  %>" alt=""> </p>
-<p>bio: <%= @student.bio %></p>
-<% if user_signed_in? %>
-  <% if current_user.id == params[:id] || current_user.admin %>
-    <%= link_to "Edit", edit_student_path(@student)%>
+<div class="container">
+<!-- START the container-->
+
+<div class="table-responsive panel">
+<table class="table">
+<tbody>
+<tr>
+  <td class="text-success"><i class="fa fa-user"></i> Full Name</td>
+  <td><%= @student.f_name %>  <%=@student.l_name %></td>
+</tr>
+
+<tr>
+  <td class="text-success"><i class="fa fa-calendar"></i> User Github</td>
+  <td><%= @student.github_user  %></td>
+</tr>
+
+<tr>
+  <td class="text-success"><i class="fa fa-list-ol"></i> Email</td>
+  <td><%= @student.email  %></td>
+</tr>
+<tr>
+  <td class="text-success"><i class="fa fa-book"></i> Gender</td>
+  <td><%= @student.gender  %></td>
+</tr>
+<tr>
+  <td class="text-success"><i class="fa fa-group"></i> Mobile</td>
+  <td><%= @student.mobile  %></td>
+</tr>
+<tr>
+  <td class="text-success"><i class="fa fa-calendar"></i> Linkedin</td>
+  <td><%= @student.linkedin  %></td>
+</tr>
+
+
+
+<tr>
+  <td class="text-success"><i class="fa fa-calendar"></i> Twitter</td>
+  <td><%= @student.twitter  %></td>
+</tr>
+
+<tr>
+  <td class="text-success"><i class="fa fa-calendar"></i> Bio</td>
+  <td><%= @student.bio  %></td>
+</tr>
+
+
+</tbody>
+</table>
+</div>
+
+ <% if user_signed_in? %>
+  <% if current_user.student.id == params[:id].to_i || current_user.admin %>
+    <%= link_to "Edit", edit_student_path(@student),class:"btn btn-secondary btn"%>
   <% end %>
 <% else %>
 <% end %>
+<!-- End the container-->
+</div>
+
+
 <hr>
 <% if user_signed_in? %>
-  <% if current_user.id == params[:id] || current_user.admin  %>
-    <%= link_to "Add New Project", new_project_path %>
+  <% if current_user.student.id == params[:id].to_i  || current_user.admin  %>
+    <%= link_to "Add New Project", new_project_path ,class:"btn btn-secondary btn-lg" %>
   <% end %>
 <% else %>
 <% end %>
+
+
+
 <h1 style="text-align:center"> All Projects</h1>
 <ul>
   <% @student.projects.each do |project|%>
