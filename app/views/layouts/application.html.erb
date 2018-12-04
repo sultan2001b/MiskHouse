@@ -5,76 +5,68 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
-
   <body >
-   <header style="display: block;">
-     <div style="height: 55px;">
-      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark" >
-
-        <a class="navbar-brand" href="#">Misk House</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-            </li>
-
+    <header style="display: block;">
+      <div style="height: 55px;">
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark" >
+          <a class="navbar-brand" href="#">Misk House</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+              </li>
+              <% if user_signed_in? %>
+                <li class="nav-item active">
+                  <% if current_user.student != nil%>
+                    <%=link_to "Profile" , edit_student_path(current_user.student),class: "nav-link "%>
+                  <% end %>
+                </li>
+              <%end%>
+              <!--            <li class="nav-item">-->
+              <!--              <a class="nav-link" href="<%#= programs_path %>">Our Programs</a>-->
+              <!--            </li>-->
+              <!--            <li class="nav-item">-->
+              <!--              <a class="nav-link disabled" href="<%#= students_path %>">All Students</a>-->
+              <!--            </li>-->
+              <!--             <li class="nav-item">-->
+              <!--              <a class="nav-link disabled" href="<%#= courses_path %>">All Courses</a>-->
+              <!--            </li>-->
+              <li class="nav-item active">
+                <%= link_to 'Log In', new_user_session_path,class: "nav-link "  %>
+              </li>
+              <li class="nav-item active">
+                <%= link_to "Sign Up",new_user_registration_path,class: "nav-link "  %>
+              </li>
+              <li class="nav-item active">
+                <%= link_to "Edit Logged In User", edit_user_registration_path ,class: "nav-link " %>
+              </li>
+              <li class="nav-item active">
+                <%= link_to'Log Out', destroy_user_session_path, method: :delete,class: "nav-link " %>
+              </li>
+              <p class="notice bg-white"><%= notice %></p>
+              <p class="alert bg-white"><%= alert %></p>
+            </ul>
             <% if user_signed_in? %>
-            <li class="nav-item active">
-              <%=link_to "Profile" , edit_student_path(current_user),class: "nav-link "%>
-            </li>
-            <%end%>
-            
-<!--            <li class="nav-item">-->
-<!--              <a class="nav-link" href="<%#= programs_path %>">Our Programs</a>-->
-<!--            </li>-->
-<!--            <li class="nav-item">-->
-<!--              <a class="nav-link disabled" href="<%#= students_path %>">All Students</a>-->
-<!--            </li>-->
-<!--             <li class="nav-item">-->
-<!--              <a class="nav-link disabled" href="<%#= courses_path %>">All Courses</a>-->
-<!--            </li>-->
-             <li class="nav-item active">
-               <%= link_to 'Log In', new_user_session_path,class: "nav-link "  %>
-            </li>
-            <li class="nav-item active">
-              <%= link_to "Sign Up",new_user_registration_path,class: "nav-link "  %>
-            </li>
-            <li class="nav-item active">
-              <%= link_to "Edit Logged In User", edit_user_registration_path ,class: "nav-link " %>
-            </li>
-            <li class="nav-item active">
-              <%= link_to'Log Out', destroy_user_session_path, method: :delete,class: "nav-link " %>
-            </li>
-            <p class="notice bg-white"><%= notice %></p>
-            <p class="alert bg-white"><%= alert %></p>
-          </ul>
-
-          <% if user_signed_in? %>
-          
-            <p class="alert alert-primary" role="alert">logged in users</p>
-          <% else %>
-            <p class="alert alert-primary" role="alert">logged out users</p>
-          <% end %>
-
-          <form class="form-inline mt-2 mt-md-0">
-            <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-          </form>
-        </div>
-      </nav>
-     </div>
+              <p class="alert alert-primary" role="alert">logged in users</p>
+            <% else %>
+              <p class="alert alert-primary" role="alert">logged out users</p>
+            <% end %>
+            <form class="form-inline mt-2 mt-md-0">
+              <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+          </div>
+        </nav>
+      </div>
     </header>
-<div >
-
-</div>
+    <div >
+    </div>
     <!--  <p style="margin-top:100px"></p>
   <nav>
 <%# link_to 'All Programs', programs_path %>
@@ -88,11 +80,9 @@
 </nav>
  -->
     <%= yield %>
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-
-   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   </body>
 </html>
