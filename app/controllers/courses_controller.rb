@@ -25,9 +25,16 @@ class CoursesController < ApplicationController
   end
 
   def create
+    
+
+
+
     program_id = session[:program_id]
     program = Program.find_by(id: program_id)
     course = program.courses.create(course_params)
+    req = Cloudinary::Uploader.upload(course_params["img"])
+    course.img =req["url"]
+    course.save
     redirect_to program_path(program)
   end
 
