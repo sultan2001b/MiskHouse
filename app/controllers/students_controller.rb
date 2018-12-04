@@ -34,7 +34,7 @@ class StudentsController < ApplicationController
     student.f_name = student_params["f_name"]
     student.l_name = student_params["l_name"]
     student.gender = student_params["gender"]
-    student.email = student_params["email"]
+    student.email = current_user.email
     student.mobile = student_params["mobile"]
     student.linkedin = student_params["linkedin"]
     student.github_user = student_params["github_user"]
