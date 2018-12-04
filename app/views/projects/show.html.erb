@@ -1,52 +1,46 @@
 <h1 class="margin_top"></h1>
 <div class="container">
-<!-- START the container-->
-
-<div class="table-responsive panel">
-<table class="table">
-<tbody>
-<tr>
-  <td class="text-success"><i class="fa fa-user"></i> Project</td>
-  <td><%=@project.name%></td>
-</tr>
-
-<tr>
-  <td class="text-success"><i class="fa fa-user"></i> URl</td>
-  <td><a href="<%=@project.url%>"><%=@project.url%></a></td>
-</tr>
-
-<tr>
-  <td class="text-success"><i class="fa fa-user"></i> Description</td>
-  <td><%=@project.description%></td>
-</tr>
-
-<tr>
-  <td class="text-success"><i class="fa fa-user"></i> Project was developed by</td>
-  <td><%=@project.language%></td>
-</tr>
-
-</tbody>
-</table>
-</div>
-
-
-
-<h4>List of contributors here and link them to there show pages</h4>
-<div>
-  <ul>
-    <% @project.students.each do |s|%>
-      <li>
-        <%= link_to s.f_name+ " " +s.l_name, student_path(s)%>
-      </li>
-    <%end%>
-  </ul>
-</div>
-<% is_owner = false%>
-<% current_user.student.projects.each do |pro|%>
-  <% if pro.id == params[:id].to_i %>
-    <% is_owner = true %>
+  <!-- START the container-->
+  <div class="table-responsive panel">
+    <table class="table">
+      <tbody>
+        <tr>
+          <td class="text-success"><i class="fa fa-user"></i> Project</td>
+          <td><%=@project.name%></td>
+        </tr>
+        <tr>
+          <td class="text-success"><i class="fa fa-user"></i> URl</td>
+          <td><a href="<%=@project.url%>"><%=@project.url%></a></td>
+        </tr>
+        <tr>
+          <td class="text-success"><i class="fa fa-user"></i> Description</td>
+          <td><%=@project.description%></td>
+        </tr>
+        <tr>
+          <td class="text-success"><i class="fa fa-user"></i> Project was developed by</td>
+          <td><%=@project.language%></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <h4>List of contributors here and link them to there show pages</h4>
+  <div>
+    <ul>
+      <% @project.students.each do |s|%>
+        <li>
+          <%= link_to s.f_name+ " " +s.l_name, student_path(s)%>
+        </li>
+      <%end%>
+    </ul>
+  </div>
+  <% is_owner = false%>
+  <% if current_user != nil %>
+    <% current_user.student.projects.each do |pro|%>
+      <% if pro.id == params[:id].to_i %>
+        <% is_owner = true %>
+      <% end %>
+    <% end %>
+  <% if is_owner == true   || current_user.admin %>
+    <%= link_to 'Edit Project', edit_project_path(@project),class:"btn btn-secondary btn" %>
   <% end %>
-<% end %>
-<% if is_owner == true   || current_user.admin %>
-  <%= link_to 'Edit Project', edit_project_path(@project),class:"btn btn-secondary btn" %>
-<% end %>
+  <% end %>
