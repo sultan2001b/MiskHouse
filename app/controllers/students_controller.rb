@@ -10,7 +10,11 @@ class StudentsController < ApplicationController
   end
 
   def edit
-    @student = Student.find_by(id: params[:id])
+    if params[:id] == current_user.student.id.to_s || current_user.admin == true
+      @student = Student.find_by(id: params[:id])
+    else
+      redirect_to root_path
+    end
   end
 
   def show
@@ -20,15 +24,12 @@ class StudentsController < ApplicationController
 
   def create
     arr = []
-    params["courses"].each do |k, v|
-      arr.push(v)
+    if params["courses"] != nil
+      params["courses"].each do |k, v|
+        arr.push(v)
+      end
     end
 
-    # params[:picture].each_pair {|key,value|
-    # …
-    # }
-
-    # raise
     student = Student.new
     student.f_name = student_params["f_name"]
     student.l_name = student_params["l_name"]
@@ -41,7 +42,6 @@ class StudentsController < ApplicationController
     student.img = student_params["img"]
     student.bio = student_params["bio"]
     student.user_id = current_user.id
-
     student.save
 
     arr.each do |a|
@@ -53,9 +53,21 @@ class StudentsController < ApplicationController
   end
 
   def update
+    arr = []
+    if params["courses"] != nil
+      params["courses"].each do |k, v|
+        arr.push(v)
+      end
+    end
     student = Student.find_by(id: params[:id])
     student.update(student_params)
     redirect_to student_path(student)
+
+    student.courses.delete_all
+    arr.each do |a|
+      course = Course.find_by(name: a)
+      student.courses << course
+    end
   end
 
   def index
