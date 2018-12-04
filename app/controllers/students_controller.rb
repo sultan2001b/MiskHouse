@@ -19,7 +19,7 @@ class StudentsController < ApplicationController
 
   def show
     @student = Student.find_by(id: params[:id])
-    session[:program_id] = @student.id
+    session["student_id"] = @student.id
   end
 
   def create
@@ -59,8 +59,20 @@ class StudentsController < ApplicationController
         arr.push(v)
       end
     end
+
     student = Student.find_by(id: params[:id])
-    student.update(student_params)
+    student.f_name = student_params["f_name"]
+    student.l_name = student_params["l_name"]
+    student.gender = student_params["gender"]
+    student.email = student_params["email"]
+    student.mobile = student_params["mobile"]
+    student.linkedin = student_params["linkedin"]
+    student.github_user = student_params["github_user"]
+    student.twitter = student_params["twitter"]
+    student.img = student_params["img"]
+    student.bio = student_params["bio"]
+    student.user_id = current_user.id
+    student.save
     redirect_to student_path(student)
 
     student.courses.delete_all
