@@ -4,20 +4,28 @@
 <p>Description: <%=@project.description%></p>
 <p>Project was developed by: <%=@project.language%></p>
 <% if user_signed_in? %>
- <% if current_user.admin %>
-  <%= link_to 'Edit this Project', edit_project_path %>
-  <%= link_to "Delete this Project", project_path(@project), method: :delete %>
-    <% end %>
+  <% if current_user.admin %>
+    <%= link_to 'Edit this Project', edit_project_path %>
+    <%= link_to "Delete this Project", project_path(@project), method: :delete %>
+  <% end %>
 <% else %>
-
 <% end %>
-
 <h4>List of contributors here and link them to there show pages</h4>
-<% @project.students.each do |s|%>
 <div>
-<p><%=s.f_name+ " " +s.l_name%></p>
-<%#= link_to(c.name, student_path(s))%>
+  <ul>
+    <% @project.students.each do |s|%>
+      <li>
+        <%= link_to s.f_name+ " " +s.l_name, student_path(s)%>
+      </li>
+    <%end%>
+  </ul>
 </div>
-<%end%>
-<%#= link_to 'Add New Contributer', new_student_path %>
-
+<% is_owner = false%>
+<% current_user.student.projects.each do |pro|%>
+  <% if pro.id == params[:id].to_i %>
+    <% is_owner = true %>
+  <% end %>
+<% end %>
+<% if is_owner == true   || current_user.admin %>
+  <%= link_to 'Edit Project', edit_project_path(@project),class:"btn btn-secondary btn" %>
+<% end %>
