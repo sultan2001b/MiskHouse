@@ -25,6 +25,13 @@
             <li class="nav-item active">
               <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
             </li>
+
+            <% if user_signed_in? %>
+            <li class="nav-item active">
+              <%=link_to "Profile" , edit_student_path(current_user),class: "nav-link "%>
+            </li>
+            <%end%>
+            
 <!--            <li class="nav-item">-->
 <!--              <a class="nav-link" href="<%#= programs_path %>">Our Programs</a>-->
 <!--            </li>-->
