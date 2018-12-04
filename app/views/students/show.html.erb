@@ -60,18 +60,44 @@
 
 
 <hr>
+<!-- Start show all project of student-->
+
 <% if user_signed_in? %>
   <% if current_user.student.id == params[:id].to_i  || current_user.admin  %>
     <%= link_to "Add New Project", new_project_path ,class:"btn btn-secondary btn-lg" %>
   <% end %>
 <% else %>
 <% end %>
+<h1 style="text-align:center"> All Projects Of Student</h1>
+<br>
+<div class="col-md-12">
+<!-- START projects -->
+<div style="width:100%"> 
+<%#= link_to "Add New programs", new_student_path%>
+
+<div class="container">
+<div class="row">
+<div class="card-deck">
+<% @student.projects.each do |project|%>
+<div class="card-deck col-lg-3 col-md-4 col-sm-6 margin_button ">
+<div class="card" style="width: 40em;">
+<div class="card-body ">
+<h5 class="card-title"><%= project.name%></h5>
+<p class="card-text"><%= project.description%></p>
+<h6 class="card-subtitle mb-2 text-muted">Language:<%= project.language%></h6>
+<a href="<%= student_path(project.students.first.id)%>"><h6 class="card-text">By <%= project.students.last.f_name + " " + project.students.last.l_name%></h6></a>
+</div>
+<div class="card-footer">
+<a href="<%= project_path(project)%>" class="btn btn-primary">Show</a>
+</div>
+</div>  
+</div>    
+<%end%>
+   </div>
+    </div>
+        </div>
+</div>
+    
+<!-- END projects -->
 
 
-
-<h1 style="text-align:center"> All Projects</h1>
-<ul>
-  <% @student.projects.each do |project|%>
-    <li><%= link_to project.name, project_path(project) %></li>
-  <% end%>
-</ul>
