@@ -102,40 +102,6 @@
           <!--        <input type="text" class="form-control" id="validationCustom02" placeholder="Last name" value="Otto" required>-->
           <div class="valid-feedback">
             Looks good!
-<<<<<<< HEAD
-            </div>
-            </div>
-
-            <div class="col-lg-6 col-md-6 mb-3">
-                 <% i=0 %>
-                 <% Course.all.each do |c|%>
-                <div class=" custom-checkbox">
-                    <%if c.students.find_by(id:params[:id])%>
-                                      <%= check_box_tag 'courses['+i.to_s+']', c.name, "yes" %>
-                    <%else%>
-                                      <%= check_box_tag 'courses['+i.to_s+']', c.name %>
-                    <% end%>
-                      <% i=i+1%>
-                    <%= c.name %>
-                      <br>
-                   
-                      <% end %>
-                  
-<!--                <input type="checkbox" class="custom-control-input" id="customCheck1">-->
-<!--                <label class="custom-control-label" for="customCheck1">Check this custom checkbox</label>-->
-                </div>
-                     
-                     
-                    
-                    
-                      
-            </div>
-</div>
-    
-<!--  <button class="btn btn-primary" type="submit">Submit form</button>-->
-
-  <button class="btn btn-secondary btn-lg"><%=  f.submit%></button>
-=======
           </div>
         </div>
         <div class="col-lg-6 col-md-6 mb-3">
@@ -158,7 +124,6 @@
       </div>
       <!--  <button class="btn btn-primary" type="submit">Submit form</button>-->
       <%= f.submit %>
->>>>>>> a7525c5c663f725b3c1f87c588d4878c56fe505a
     </form>
   <% end %>
 </div>
