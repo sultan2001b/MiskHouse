@@ -79,6 +79,14 @@
     <div class="row">
       <div class="card-deck">
 
+       <% if user_signed_in? %>
+       <% if current_user.admin %>
+       <a href="<%= new_program_path%>" style="display: grid;">
+        <button type="button" class="btn btn-sm btn-outline-secondary">Add</button>
+        </a>
+       
+        <% end%>
+        <% end%>
       <% @programs.each do |program| %>
     <!--<a href="<%= program_path(program) %>" ></a>-->
 <!--    <div class="col-md-4">-->
@@ -96,7 +104,9 @@
        </a>
       <% if user_signed_in? %>
        <% if current_user.admin %>
+       <a href="<%= edit_program_path(program)%>">
         <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+        </a>
     <% end %>
       <% else %>
       <% end %>
