@@ -85,6 +85,7 @@
     
             <div class="col-lg-6 col-md-4 mb-3">
             <label for="validationCustom02">Linkedin</label>
+                
             <%= f.text_field :linkedin,class:"form-control", id:"validationCustom02", placeholder:"Linkedin"  %>
             <!--        <input type="text" class="form-control" id="validationCustom02" placeholder="Last name" value="Otto" required>-->
             <div class="valid-feedback">
@@ -117,11 +118,17 @@
                  <% i=0 %>
                  <% Course.all.each do |c|%>
                 <div class=" custom-checkbox">
-                  <%= check_box_tag 'courses['+i.to_s+']', c.name %>
+                    <%if c.students.find_by(id:params[:id])%>
+                                      <%= check_box_tag 'courses['+i.to_s+']', c.name, "yes" %>
+                    <%else%>
+                                      <%= check_box_tag 'courses['+i.to_s+']', c.name %>
+                    <% end%>
                       <% i=i+1%>
                     <%= c.name %>
                       <br>
+                   
                       <% end %>
+                  
 <!--                <input type="checkbox" class="custom-control-input" id="customCheck1">-->
 <!--                <label class="custom-control-label" for="customCheck1">Check this custom checkbox</label>-->
                 </div>
