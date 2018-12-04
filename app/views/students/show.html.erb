@@ -1,77 +1,88 @@
 <h1 class="margin_top"></h1>
 <div class="container">
-<!-- START the container-->
-
-<div class="table-responsive panel">
-<table class="table">
-<tbody>
-<tr>
-  <td class="text-success"><i class="fa fa-user"></i> Full Name</td>
-  <td><%= @student.f_name %>  <%=@student.l_name %></td>
-</tr>
-
-<tr>
-  <td class="text-success"><i class="fa fa-calendar"></i> User Github</td>
-  <td><%= @student.github_user  %></td>
-</tr>
-
-<tr>
-  <td class="text-success"><i class="fa fa-list-ol"></i> Email</td>
-  <td><%= @student.email  %></td>
-</tr>
-<tr>
-  <td class="text-success"><i class="fa fa-book"></i> Gender</td>
-  <td><%= @student.gender  %></td>
-</tr>
-<tr>
-  <td class="text-success"><i class="fa fa-group"></i> Mobile</td>
-  <td><%= @student.mobile  %></td>
-</tr>
-<tr>
-  <td class="text-success"><i class="fa fa-calendar"></i> Linkedin</td>
-  <td><%= @student.linkedin  %></td>
-</tr>
-
-
-
-<tr>
-  <td class="text-success"><i class="fa fa-calendar"></i> Twitter</td>
-  <td><%= @student.twitter  %></td>
-</tr>
-
-<tr>
-  <td class="text-success"><i class="fa fa-calendar"></i> Bio</td>
-  <td><%= @student.bio  %></td>
-</tr>
-
-
-</tbody>
-</table>
-</div>
-
- <% if user_signed_in? %>
-  <% if current_user.student.id == params[:id].to_i || current_user.admin %>
-    <%= link_to "Edit", edit_student_path(@student),class:"btn btn-secondary btn"%>
+  <!-- START the container-->
+  <div class="table-responsive panel">
+    <table class="table">
+      <tbody>
+        <tr>
+          <td class="text-success"><i class="fa fa-user"></i> Full Name</td>
+          <td><%= @student.f_name %>  <%=@student.l_name %></td>
+        </tr>
+        <tr>
+          <td class="text-success"><i class="fa fa-calendar"></i> User Github</td>
+          <td><%= @student.github_user  %></td>
+        </tr>
+        <tr>
+          <td class="text-success"><i class="fa fa-list-ol"></i> Email</td>
+          <td><%= @student.email  %></td>
+        </tr>
+        <tr>
+          <td class="text-success"><i class="fa fa-book"></i> Gender</td>
+          <td><%= @student.gender  %></td>
+        </tr>
+        <tr>
+          <td class="text-success"><i class="fa fa-group"></i> Mobile</td>
+          <td><%= @student.mobile  %></td>
+        </tr>
+        <tr>
+          <td class="text-success"><i class="fa fa-calendar"></i> Linkedin</td>
+          <td><%= @student.linkedin  %></td>
+        </tr>
+        <tr>
+          <td class="text-success"><i class="fa fa-calendar"></i> Twitter</td>
+          <td><%= @student.twitter  %></td>
+        </tr>
+        <tr>
+          <td class="text-success"><i class="fa fa-calendar"></i> Bio</td>
+          <td><%= @student.bio  %></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <% if user_signed_in? %>
+    <% if current_user.student.id == params[:id].to_i || current_user.admin %>
+      <%= link_to "Edit", edit_student_path(@student),class:"btn btn-secondary btn"%>
+    <% end %>
+  <% else %>
   <% end %>
-<% else %>
-<% end %>
-<!-- End the container-->
+  <!-- End the container-->
 </div>
-
-
 <hr>
+<!-- Start show all project of student-->
 <% if user_signed_in? %>
   <% if current_user.student.id == params[:id].to_i  || current_user.admin  %>
     <%= link_to "Add New Project", new_project_path ,class:"btn btn-secondary btn-lg" %>
   <% end %>
 <% else %>
 <% end %>
-
-
-
-<h1 style="text-align:center"> All Projects</h1>
-<ul>
-  <% @student.projects.each do |project|%>
-    <li><%= link_to project.name, project_path(project) %></li>
-  <% end%>
-</ul>
+<h1 style="text-align:center"> All Projects Of Student</h1>
+<br>
+<div class="col-md-12">
+  <!-- START projects -->
+  <div style="width:100%">
+    <%#= link_to "Add New programs", new_student_path%>
+    <div class="container">
+      <div class="row">
+        <div class="card-deck">
+          <% @student.projects.each do |project|%>
+            <div class="card-deck col-lg-3 col-md-4 col-sm-6 margin_button ">
+              <div class="card" style="width: 80em;">
+                <div class="card-body" >
+                  <h5 class="card-title"><%= project.name%></h5>
+                  <p class="card-text"><%= project.description%></p>
+                  <h6 class="card-subtitle mb-2 text-muted">Language:<%= project.language%></h6>
+                  <a href="<%= student_path(project.students.first.id)%>">
+                    <h6 class="card-text">By <%= project.students.last.f_name + " " + project.students.last.l_name%></h6>
+                  </a>
+                </div>
+                <div class="card-footer">
+                  <a href="<%= project_path(project)%>" class="btn btn-primary">Show</a>
+                </div>
+              </div>
+            </div>
+          <%end%>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- END projects -->
