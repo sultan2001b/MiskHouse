@@ -1,15 +1,36 @@
 <h1 class="margin_top"></h1>
-<h3>Project: <%=@project.name%></h3>
-<p>Project URL: <%=@project.url%></p>
-<p>Description: <%=@project.description%></p>
-<p>Project was developed by: <%=@project.language%></p>
-<% if user_signed_in? %>
-  <% if current_user.admin %>
-    <%= link_to 'Edit this Project', edit_project_path %>
-    <%= link_to "Delete this Project", project_path(@project), method: :delete %>
-  <% end %>
-<% else %>
-<% end %>
+<div class="container">
+<!-- START the container-->
+
+<div class="table-responsive panel">
+<table class="table">
+<tbody>
+<tr>
+  <td class="text-success"><i class="fa fa-user"></i> Project</td>
+  <td><%=@project.name%></td>
+</tr>
+
+<tr>
+  <td class="text-success"><i class="fa fa-user"></i> URl</td>
+  <td><a href="<%=@project.url%>"><%=@project.url%></a></td>
+</tr>
+
+<tr>
+  <td class="text-success"><i class="fa fa-user"></i> Description</td>
+  <td><%=@project.description%></td>
+</tr>
+
+<tr>
+  <td class="text-success"><i class="fa fa-user"></i> Project was developed by</td>
+  <td><%=@project.language%></td>
+</tr>
+
+</tbody>
+</table>
+</div>
+
+
+
 <h4>List of contributors here and link them to there show pages</h4>
 <div>
   <ul>
