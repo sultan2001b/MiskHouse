@@ -32,11 +32,7 @@
             <div class="invalid-feedback">
               Please choose a username.
             </div>
-                  <div class="col-12 hidden " id="showprojects">
-                    
-                 
-                  </div>
-              
+            <div class="col-12 hidden " id="showprojects">
             </div>
           </div>
         </div>
@@ -115,7 +111,7 @@
               <%if c.students.find_by(id:params[:id])%>
                 <%= check_box_tag 'courses['+i.to_s+']', c.name, "yes" %>
                 <%= c.name %>
-<!--
+                <!--
                 <div class="col-12 hidden " id="showprojects2">
                     <div class="form-group">
                     <label for="exampleFormControlSelect2">Example multiple select</label>
@@ -134,7 +130,6 @@
                 <%= c.name %>
               <% end%>
               <% i=i+1%>
-              
               <br>
             </div>
           <% end %>
@@ -164,79 +159,65 @@
   const apikey = "40c8482cfa9d0eb69621dd16376a7af904e3bc9a";
   const params = `?access_token=${apikey}`;
   const url = baseURL + path + params;
-  
-search.addEventListener("click",function(ev){
-ev.preventDefault();
-/// URL?
-const baseURL = "https://api.github.com";
-// Method?
-var username = user.value;
-const path = `/users/${username}/repos`;
-//apikey 
-const apikey = "31492531f5b287a6d8d11fc26705ff2b23c0bba5";
-const params = `?access_token=${apikey}`;
-const url = baseURL + path + params;
-
     if( showProjects.classList.contains('hidden')){
       showProjects.classList.remove('hidden');
     }
     fetch(url)
       .then(r => r.json())
       .then(data => {
-//        <div class="col-lg-6 col-md-6 mb-3">
-//          <%# i=0 %>
-//          <%# Course.all.each do |c|%>
-//            <div class=" custom-checkbox">
-//              <%#if c.students.find_by(id:params[:id])%>
-//                <%# check_box_tag 'courses['+i.to_s+']', c.name, "yes" %>
-//                <%# c.name %>
-//
-//                <div class="col-12 hidden " id="showprojects2">
-//                    <div class="form-group">
-//                    <label for="exampleFormControlSelect2">Example multiple select</label>
-//                    <select multiple class="form-control" id="exampleFormControlSelect2">
-//                    <option>1</option>
-//                    <option>2</option>
-//                    <option>3</option>
-//                    <option>4</option>
-//                    <option>5</option>
-//                    </select>
-//                    </div>
-//                  </div>
-//
-//              <%#else%>
-//                <%#= check_box_tag 'courses['+i.to_s+']', c.name %>
-//                <%#= c.name %>
-//              <%# end%>
-//              <%# i=i+1%>
-//              
-//              <br>
-//               </div>
-//            <%# end %>
-//         
-//        </div>
-        
-        
-        
+  //        <div class="col-lg-6 col-md-6 mb-3">
+  //          <%# i=0 %>
+  //          <%# Course.all.each do |c|%>
+  //            <div class=" custom-checkbox">
+  //              <%#if c.students.find_by(id:params[:id])%>
+  //                <%# check_box_tag 'courses['+i.to_s+']', c.name, "yes" %>
+  //                <%# c.name %>
+  //
+  //                <div class="col-12 hidden " id="showprojects2">
+  //                    <div class="form-group">
+  //                    <label for="exampleFormControlSelect2">Example multiple select</label>
+  //                    <select multiple class="form-control" id="exampleFormControlSelect2">
+  //                    <option>1</option>
+  //                    <option>2</option>
+  //                    <option>3</option>
+  //                    <option>4</option>
+  //                    <option>5</option>
+  //                    </select>
+  //                    </div>
+  //                  </div>
+  //
+  //              <%#else%>
+  //                <%#= check_box_tag 'courses['+i.to_s+']', c.name %>
+  //                <%#= c.name %>
+  //              <%# end%>
+  //              <%# i=i+1%>
+  //
+  //              <br>
+  //               </div>
+  //            <%# end %>
+  //
+  //        </div>
+  
+  
+  
         showprojects.innerHTML = "";
         showprojects.innerHTML += '<label for="validationCustomUsername">All Projects</label><br>';
         showprojects.innerHTML += '<span class="border">';
       for(var i = 0 ; i < data.length ; i++){
-      checkTags = 
-`
-<span class="border mr-3">
-<div class="form-check form-check-inline">
-<input type="checkbox" name='projects[${i}]'  id='project_${i}' value='${JSON.stringify(data[i])}'> 
-<label class="form-check-label" for="inlineCheckbox1"> ${data[i].name} </label>
-</div>
-</span>
-`
+      checkTags =
+  `
+  <span class="border mr-3">
+  <div class="form-check form-check-inline">
+  <input type="checkbox" name='projects[${i}]'  id='project_${i}' value='${JSON.stringify(data[i])}'>
+  <label class="form-check-label" for="inlineCheckbox1"> ${data[i].name} </label>
+  </div>
+  </span>
+  `
        showprojects.innerHTML += checkTags;
       }
          showprojects.innerHTML += '</span>';
-       
-      });
   
+      });
    });
 </script>
 <!-- 
@@ -246,51 +227,41 @@ const url = baseURL + path + params;
     <%# f.text_field :f_name %>
   </p>
   <p>
-
   <%# f.label :l_name ,"last name"%>
   <%# f.text_field :l_name %>
   </p>
   <p>
-
   <%# f.label :gender %>
   <%# f.text_field :gender %>
   </p>
   <p>
-
   <%# f.label :email %>
   <%# f.text_field :email %>
   </p>
   <p>
-
   <%# f.label :mobile %>
   <%# f.text_field :mobile %>
   </p>
   <p>
-
   <%# f.label :linkedin %>
   <%# f.text_field :linkedin %>
   </p>
   <p>
-
   <%# f.label :github_user %>
   <%# f.text_field :github_user %>
   </p>
   <p>
-
   <%# f.label :twitter %>
   <%# f.text_field :twitter %>
   </p>
   <p>
-
   <%# f.label :img %>
   <%# f.text_field :img %>
   </p>
   <p>
-
   <%# f.label :bio %>
   <%# f.text_field :bio %>
   </p>
-
   <%# f.submit %>
 <%# end %>
 -->
