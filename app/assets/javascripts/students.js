@@ -62,3 +62,5 @@
 
 // const button = document.querySelector("button");
 // button.addEventListener("click", fetchNewUser);
+
+// Material Select Initialization
