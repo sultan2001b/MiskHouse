@@ -20,7 +20,6 @@
             Looks good!
           </div>
         </div>
-        
         <div class="col-12">
           <label for="validationCustomUsername">GitHub Username</label>
           <div class="input-group">
@@ -28,22 +27,15 @@
               <span class="input-group-text" id="inputGroupPrepend">@</span>
             </div>
             <%= f.text_field :github_user, class:"form-control", id:"validationCustomUsername", placeholder:"GitHub" %>
-             <button id="search">Search</button>
-           
+            <button id="search">Search</button>
             <!--        <input type="text" class="form-control" id="validationCustomUsername" placeholder="Username" aria-describedby="inputGroupPrepend" required>-->
             <div class="invalid-feedback">
               Please choose a username.
             </div>
-                  <div class="col-12 hidden " id="showprojects">
-                   
-                 
-                  </div>
-              
+            <div class="col-12 hidden " id="showprojects">
             </div>
-            </div>
-            
-          
-          
+          </div>
+        </div>
         <div class="col-lg-6 col-md-12 mb-3">
           <label for="validationCustom02">Image</label>
           <div class="input-group">
@@ -124,48 +116,37 @@
               <% i=i+1%>
               <%= c.name %>
               <br>
-               </div>
-            <% end %>
-         
+            </div>
+          <% end %>
         </div>
       </div>
-
-
-  
-
       <!--  <button class="btn btn-primary" type="submit">Submit form</button>-->
       <button class="btn btn-secondary btn-lg"><%=  f.submit%></button>
     </form>
-
   <% end %>
-  
-  
-
 </div>
-
-
-  <script>
+<script>
   var search = document.querySelector('#search');
   var user = document.querySelector("#validationCustomUsername");
   var showProjects = document.querySelector("#showprojects");
-// search.addEventListener("click",function(ev){
+  // search.addEventListener("click",function(ev){
   
-// });
+  // });
   
-search.addEventListener("click",function(ev){
-ev.preventDefault();
-/// URL?
-const baseURL = "https://api.github.com";
-// Method?
-var username = user.value;
-const path = `/users/${username}/repos`;
-//apikey 
-const apikey = "c6807b2ba219dcfbd06ef82d9efce293974fe563";
-const params = `?access_token=${apikey}`;
-const url = baseURL + path + params;
-
+  search.addEventListener("click",function(ev){
+  ev.preventDefault();
+  /// URL?
+  const baseURL = "https://api.github.com";
+  // Method?
+  var username = user.value;
+  const path = `/users/${username}/repos`;
+  //apikey
+  const apikey = "40c8482cfa9d0eb69621dd16376a7af904e3bc9a";
+  const params = `?access_token=${apikey}`;
+  const url = baseURL + path + params;
+  
     if( showProjects.classList.contains('hidden')){
-      showProjects.classList.remove('hidden');     
+      showProjects.classList.remove('hidden');
     }
     fetch(url)
       .then(r => r.json())
@@ -178,14 +159,9 @@ const url = baseURL + path + params;
       }
       showprojects.innerHTML += `<p> Count: ${i } projects</p> `;
       });
-
+  
    });
-
-
-  </script>
-
-
-
+</script>
 <!-- 
 <%# form_for @student do |f| %>
   <p>
