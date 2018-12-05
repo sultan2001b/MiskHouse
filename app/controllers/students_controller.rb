@@ -54,10 +54,23 @@ class StudentsController < ApplicationController
 
   def update
     arr = []
+    arr_projects = []
+
     if params["courses"] != nil
       params["courses"].each do |k, v|
         arr.push(v)
       end
+    end
+
+    params["projects"].each do |index, project|
+      hash_project = JSON.parse(project)
+      name_proj = hash_project["name"]
+      url_proj = hash_project["html_url"]
+      language_proj = hash_project["language"]
+      description_proj = hash_project["description"]
+      proj = Project.create(name: name_proj, url: url_proj, language: language_proj, description: description_proj)
+      student = Student.find_by(id: params[:id])
+      student.projects << proj
     end
 
     student = Student.find_by(id: params[:id])
