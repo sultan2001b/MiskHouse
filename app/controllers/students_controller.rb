@@ -39,7 +39,8 @@ class StudentsController < ApplicationController
     student.linkedin = student_params["linkedin"]
     student.github_user = student_params["github_user"]
     student.twitter = student_params["twitter"]
-    student.img = student_params["img"]
+    req = Cloudinary::Uploader.upload(student_params["img"])
+    student.img = req["url"]
     student.bio = student_params["bio"]
     student.user_id = current_user.id
     student.save
@@ -69,7 +70,8 @@ class StudentsController < ApplicationController
     student.linkedin = student_params["linkedin"]
     student.github_user = student_params["github_user"]
     student.twitter = student_params["twitter"]
-    student.img = student_params["img"]
+    req = Cloudinary::Uploader.upload(student_params["img"])
+    student.img = req["url"]
     student.bio = student_params["bio"]
     student.user_id = current_user.id
     student.save

@@ -91,7 +91,12 @@
                         <% @course.students.each do |student|%>
 						<tr>
 							<td>
+							<% if student.img == nil %>
 								<img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="">
+								<% else %>
+								<img src= "<%=student.img%>" alt="">
+
+								<% end %>
 								<a href="<%= student_path(student)%>" class="user-link"><%= student.f_name + " " + student.l_name%></a>
 								<span class="user-subhead">Gender: <%= student.gender%></span>
 							</td>

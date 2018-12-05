@@ -1,38 +1,21 @@
-<form class="container">
-<%= form_for @program do |f| %>
-<div class="form-group">
-<label for="exampleFormControlInput1">Name</label>
-<%= f.text_field :name,class:"form-control", id:"exampleFormControlInput1" ,placeholder:"name" %>
+<div class="container">
+  <%= form_for @program do |f| %>
+    <div class="form-group">
+      <label for="exampleFormControlInput1">Name</label>
+      <%= f.text_field :name,class:"form-control", id:"exampleFormControlInput1" ,placeholder:"name" %>
+    </div>
+    <div class="form-group">
+      <label for="exampleFormControlInput1">Image</label>
+      <%= f.file_field :img %>
+    </div>
+    <div class="form-group">
+      <label for="exampleFormControlTextarea1">Short Description</label>
+      <%= f.text_field :short_description,class:"form-control", id:"exampleFormControlInput1" ,placeholder:"Short description" %>
+    </div>
+    <div class="form-group">
+      <label for="exampleFormControlTextarea1">Long Description</label>
+      <%= f.text_area :long_description,class:"form-control", id:"exampleFormControlTextarea1" ,placeholder:"Long description" %>
+    </div>
+    <%= f.submit "Create Program", class:"btn btn-secondary btn-lg"%>
+  <% end %>
 </div>
-<div class="form-group">
-    <label for="exampleFormControlInput1">Image</label>
-    <%= f.file_field :img %>
-
-</div>
-
-<div class="form-group">
-<label for="exampleFormControlTextarea1">Short Description</label>
-    <%= f.text_field :short_description,class:"form-control", id:"exampleFormControlInput1" ,placeholder:"Short description" %>
-
-</div>
-
-<div class="form-group">
-<label for="exampleFormControlTextarea1">Long Description</label>
-     <%= f.text_area :long_description,class:"form-control", id:"exampleFormControlTextarea1" ,placeholder:"Long description" %>
-
-</div>
-<%= f.submit "Create Program", class:"btn btn-secondary btn-lg"%>
-<% end %>
-</form>
-
-
-
-<%# 
-<%= form_for @program do |f| %>
-  <%# Name: <%= f.text_field :name %>
-  <%# image: <%= f.text_field :img %> 
-  <%# Short description: <%= f.text_field :short_description %>
-  <%# Long description: <%= f.text_field :long_description %> 
-
-  <%# <%= f.submit %>
-<%# <% end %> 
